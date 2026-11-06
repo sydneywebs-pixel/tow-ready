@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   ArrowRight,
   BatteryCharging,
@@ -71,6 +71,14 @@ const serviceAreas = ["Sydney CBD", "Inner West", "Eastern Suburbs", "North Shor
 const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showStickyCall, setShowStickyCall] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowStickyCall(window.scrollY > 180);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -244,7 +252,7 @@ const Index = () => {
 
       <footer className="bg-[#0a192e] px-5 py-12 text-white lg:px-8"><div className="mx-auto max-w-7xl"><div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]"><div><div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-[#f59e0b]"><img src="/assets/towready-logo.png" alt="" className="h-8 w-8 object-contain mix-blend-multiply" /></div><span className="font-display text-xl font-black">TowReady</span></div><p className="mt-5 max-w-xs text-sm leading-6 text-white/55">Fast, friendly towing and roadside assistance for Sydney drivers, 24 hours a day.</p></div><div><p className="text-xs font-black uppercase tracking-[0.16em] text-[#f59e0b]">Explore</p><div className="mt-5 space-y-3 text-sm font-semibold text-white/65"><a className="block hover:text-white" href="#services">Services</a><a className="block hover:text-white" href="#how-it-works">How it works</a><a className="block hover:text-white" href="#coverage">Coverage</a></div></div><div><p className="text-xs font-black uppercase tracking-[0.16em] text-[#f59e0b]">Contact</p><div className="mt-5 space-y-3 text-sm font-semibold text-white/65"><a className="block hover:text-white" href="tel:1300869732">1300 TOW NOW</a><a className="block hover:text-white" href="mailto:hello@towready.com.au">hello@towready.com.au</a><p>Sydney Metro, NSW</p></div></div><div className="rounded-2xl border border-white/10 bg-white/5 p-5"><p className="flex items-center gap-2 text-sm font-extrabold"><span className="h-2 w-2 rounded-full bg-[#f59e0b]" /> Dispatch is open</p><p className="mt-2 text-xs leading-5 text-white/50">Emergency help is available now, day or night.</p><a href="tel:1300869732" className="mt-4 inline-flex items-center text-sm font-extrabold text-[#f59e0b]">Call us <ArrowRight className="ml-2 h-4 w-4" /></a></div></div><div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs font-semibold text-white/35 sm:flex-row sm:items-center sm:justify-between"><p>© 2024 TowReady. Here when you need us.</p><p className="flex items-center gap-2"><Wrench className="h-3.5 w-3.5" /> Safety first, always.</p></div></div></footer>
 
-      <a href="tel:1300869732" className="fixed bottom-4 left-4 right-4 z-30 flex h-14 items-center justify-center gap-2 rounded-full bg-[#f59e0b] text-sm font-black text-[#10233f] shadow-[0_10px_30px_rgba(16,35,63,0.3)] sm:hidden"><Phone className="h-5 w-5" /> Call 1300 TOW NOW</a>
+      {showStickyCall && <a href="tel:1300869732" className="fixed bottom-4 left-4 right-4 z-30 flex h-14 items-center justify-center gap-2 rounded-full bg-[#f59e0b] text-sm font-black text-[#10233f] shadow-[0_10px_30px_rgba(16,35,63,0.3)] sm:hidden"><Phone className="h-5 w-5" /> Call 1300 TOW NOW</a>}
     </div>
   );
 };
