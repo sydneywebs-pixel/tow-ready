@@ -12,9 +12,9 @@
     --card-foreground: 215 60% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 215 60% 15%;
-    --primary: 39 92% 50%;
+    --primary: 199 89% 48%;
     --primary-foreground: 215 60% 15%;
-    --secondary: 39 100% 94%;
+    --secondary: 199 92% 95%;
     --secondary-foreground: 215 60% 15%;
     --muted: 40 25% 94%;
     --muted-foreground: 215 16% 43%;
@@ -24,7 +24,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 215 20% 88%;
     --input: 215 20% 88%;
-    --ring: 39 92% 50%;
+    --ring: 199 89% 48%;
     --radius: 1rem;
   }
 
@@ -58,6 +58,6 @@
 }
 
 ::selection {
-  background: #f59e0b;
+  background: #38bdf8;
   color: #10233f;
 }
