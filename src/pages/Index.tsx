@@ -199,11 +199,11 @@ const Index = () => {
           </div>
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {services.map(({ icon: Icon, eyebrow, title, description, action }, index) => (
-              <article key={title} className={`group overflow-hidden rounded-[1.5rem] border border-[#10233f]/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#f59e0b] hover:shadow-[0_18px_40px_rgba(16,35,63,0.09)] ${index === 1 ? "bg-[#10233f] text-white" : "bg-white"}`}>
+              <article key={title} className="group overflow-hidden rounded-[1.5rem] border border-[#10233f]/10 bg-[#10233f] p-7 text-white transition-all duration-300 hover:-translate-y-1 hover:border-[#f59e0b] hover:shadow-[0_18px_40px_rgba(16,35,63,0.09)]">
                 {index === 1 && <div className="-mx-7 -mt-7 mb-7 h-36 overflow-hidden"><img src="/assets/roadside-assistance.png" alt="TowReady technician helping a driver" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>}
-                <div className="flex items-start justify-between"><span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${index === 1 ? "bg-[#f59e0b] text-[#10233f]" : "bg-[#fff0c9] text-[#c47b00]"}`}><Icon className="h-6 w-6" /></span><span className={`text-[10px] font-black uppercase tracking-[0.18em] ${index === 1 ? "text-white/45" : "text-[#10233f]/35"}`}>{eyebrow}</span></div>
-                <h3 className={`${index === 1 ? "mt-8" : "mt-12"} font-display text-3xl font-black tracking-tight`}>{title}</h3><p className={`mt-3 min-h-[72px] text-sm leading-6 ${index === 1 ? "text-white/65" : "text-slate-600"}`}>{description}</p>
-                <a href="#request-help" className={`mt-7 inline-flex items-center text-sm font-extrabold ${index === 1 ? "text-[#f59e0b]" : "text-[#10233f]"}`}>{action}<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
+                <div className="flex items-start justify-between"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f59e0b] text-[#10233f]"><Icon className="h-6 w-6" /></span><span className="text-[10px] font-black uppercase tracking-[0.18em] text-white/45">{eyebrow}</span></div>
+                <h3 className={`${index === 1 ? "mt-8" : "mt-12"} font-display text-3xl font-black tracking-tight`}>{title}</h3><p className="mt-3 min-h-[72px] text-sm leading-6 text-white/65">{description}</p>
+                <a href="#request-help" className="mt-7 inline-flex items-center text-sm font-extrabold text-[#f59e0b]">{action}<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
               </article>
             ))}
           </div>
