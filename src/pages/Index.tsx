@@ -204,6 +204,8 @@ const Index = () => {
                 <div className="flex items-start justify-between"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f59e0b] text-[#10233f]"><Icon className="h-6 w-6" /></span><span className="text-[10px] font-black uppercase tracking-[0.18em] text-white/45">{eyebrow}</span></div>
                 <h3 className={`${index === 1 ? "mt-8" : "mt-12"} font-display text-3xl font-black tracking-tight`}>{title}</h3><p className="mt-3 min-h-[72px] text-sm leading-6 text-white/65">{description}</p>
                 <a href="#request-help" className="mt-7 inline-flex items-center text-sm font-extrabold text-[#f59e0b]">{action}<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
+                {index === 0 && <div className="-mx-7 -mb-7 mt-7 h-36 overflow-hidden"><img src="/assets/local-towing.png" alt="Tow truck loading a stranded vehicle" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>}
+                {index === 2 && <div className="-mx-7 -mb-7 mt-7 h-36 overflow-hidden"><img src="/assets/vehicle-transport.png" alt="Vehicle transport truck carrying a car" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>}
               </article>
             ))}
           </div>
